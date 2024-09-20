@@ -16,9 +16,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // set emails recognized for admin claim
-const adminEmails = [ 
-  "hr@hradvantageservices.com",
-  "hrpartner@hradvantageservices.com"
+const adminEmails = [
+  "admin@admin.com",
 ];
 
 // middleware setup

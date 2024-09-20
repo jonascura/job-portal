@@ -21,7 +21,7 @@ const Login = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if (!isSigningIn && !isAdminLogin) {
+        if (!isSigningIn) {
             setIsSigningIn(true);
             try {
                 await logInWithEmailAndPassword(email, password);

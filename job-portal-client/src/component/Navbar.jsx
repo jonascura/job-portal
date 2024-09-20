@@ -95,7 +95,7 @@ const Navbar = () => {
           </svg>
           <span>JobPortal</span>
           {/* add role tags to logo */}
-          <span className='flex items-baseline mt-4'>
+          <span className='flex items-baseline mt-2'>
             {isAdmin && (<p className="text-blue text-sm">admin</p>)}
             {isEmployer && (<p className="text-green text-sm">employer</p>)}
           </span>
