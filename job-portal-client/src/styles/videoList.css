@@ -1,0 +1,14 @@
+.video-container {
+  position: relative;
+  width: 100%; /* Adjust width as per your layout needs */
+  padding-top: 56.25%; /* Change this for your desired aspect ratio, like 177.77% for 9:16 ratio */
+  margin-bottom: 30px; /* Space between videos */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
