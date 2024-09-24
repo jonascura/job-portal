@@ -178,7 +178,7 @@ const Home = () => {
       {/* main content */}
       <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">
         {/* Left side for Sidebar (1/5 of total width) */}
-        <div className="bg-white p-4 rounded">
+        <div className="bg-white p-4 rounded-2xl">
           <Sidebar
             handleProvinceChange={handleProvinceChange}
             handleSalaryChange={handleSalaryChange}
@@ -188,7 +188,7 @@ const Home = () => {
         </div>
 
         {/* Middle */}
-        <div className="col-span-2 bg-white p-4 rounded-sm">
+        <div className="col-span-2 bg-white p-4 rounded-2xl">
           {isLoading ? (
             <p>Loading...</p>
           ) : jobCards.length ? (
@@ -225,7 +225,7 @@ const Home = () => {
         </div>
 
         {/* Right */}
-        <div className="bg-white p-4 rounded">
+        <div className="bg-white p-4 rounded-2xl">
         </div>
 
         
