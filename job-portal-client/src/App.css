@@ -160,3 +160,12 @@ li {
 .create-job-input{
   @apply block w-full flex-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6
 }
+
+.job-preview {
+  position: sticky;
+  top: 2rem; /* Adjust based on your layout */
+  max-height: calc(100vh - 4rem); /* Adjust as needed */
+  overflow-y: auto; /* Enable scroll if content is too long */
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 1rem;
+}
