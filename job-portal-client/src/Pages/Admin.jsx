@@ -237,11 +237,11 @@ const Admin = () => {
                               onChange={() => toggleJobApproval(job._id)}
                               className={`toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-2 appearance-none cursor-pointer ${job.isApproved ? 'translate-x-4' : 'translate-x-0'}`}
                             />
-                            <label className={`toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer ${job.isApproved ? 'bg-green' : 'bg-gray-400 '}`}></label>
+                            <label className={`toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer ${job.isApproved ? 'bg-mint' : 'bg-gray-400 '}`}></label>
                           </div>
                         </td>
                         {/* Status */}
-                        <td className={`border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ${job.isApproved ? 'text-green' : 'text-blueGray-700'}`}>
+                        <td className={`border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ${job.isApproved ? 'text-mint' : 'text-blueGray-700'}`}>
                           {
                           job.isApproved ? "Aprroved": "Pending"
                           }
@@ -266,7 +266,7 @@ const Admin = () => {
                           <button><Link to={`/edit-job/${job?._id}`}>Edit</Link></button>
                         </td>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <button onClick={() => handleDelete(job._id)} className='bg-red-700 py-2 px-6 text-white rounded-sm'>Delete</button>
+                          <button onClick={() => handleDelete(job._id)} className='bg-tomato py-2 px-6 text-white rounded-sm'>Delete</button>
                         </td>
                       </tr>
                     ))}

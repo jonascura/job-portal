@@ -83,21 +83,21 @@ const Navbar = () => {
               cx='12.0143'
               cy='12.5143'
               r='12.0143'
-              fill='#3575E2'
+              fill='#56E39F'
               fillOpacity='0.4'  
             />
             <circle 
               cx='16.9857'
               cy='17.4857'
               r='12.0143'
-              fill='#3575E2'
+              fill='#56E39F'
             />
           </svg>
-          <span>JobPortal</span>
+          <span>Job Portal</span>
           {/* add role tags to logo */}
           <span className='flex items-baseline mt-2'>
             {isAdmin && (<p className="text-blue text-sm">admin</p>)}
-            {isEmployer && (<p className="text-green text-sm">employer</p>)}
+            {isEmployer && (<p className="text-aqua text-sm">employer</p>)}
           </span>
           {/* Logo end */}
         </a>
@@ -135,11 +135,11 @@ const Navbar = () => {
               <Link to="/login" className="py-2 px-5 border rounded">
                 Log in
               </Link>
-              <Link to="/register" className="py-2 px-5 border rounded bg-blue text-white">
+              <Link to="/register" className="py-2 px-5 border rounded bg-blue text-white hover:bg-midnight-green">
                 Sign Up
               </Link> 
               <p className='text-gray-400'>|</p>
-              <Link to="/employer-login" className="text-base text-primary py-2 hover:text-green">
+              <Link to="/employer-login" className="text-base text-primary py-2 hover:text-aqua">
                 Employer
               </Link>
             </>

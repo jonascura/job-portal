@@ -16,7 +16,7 @@ form input:focus, form select:focus, form textarea:focus {
 
 /* Styles for submit button */
 form button[type="submit"] {
-  background-color: #1D4ED8; /* Tailwind's blue-500 */
+  background-color: #2274A5; /* Tailwind's blue-500 */
   color: white;
   font-weight: bold;
   padding: 0.5rem 1rem;
@@ -25,7 +25,7 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover {
-  background-color: #1E40AF; /* Tailwind's blue-700 */
+  background-color: #023C40; /* Tailwind's blue-700 */
 }
 
 

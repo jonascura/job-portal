@@ -5,7 +5,7 @@ body{
 }
 
 .active{
-  color: #3575E2;
+  color: #56E39F;
   font-weight: 500;
 }
 
@@ -111,16 +111,20 @@ li {
   border-radius: 50%;
 }
 
+.checkmark:hover {
+  background-color: #56E39F;
+}
+
 .all {
   background: linear-gradient(blue, crimson);
 }
 
 .sidebar-label-container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #59C9A5;
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #56E39F;
 }
 
 .checkmark:after {
@@ -146,8 +150,6 @@ li {
   margin-top: 3rem;
   border-color: #f7f7f7;
 }
-
-
 
 /* create a job page */
 
