@@ -1,13 +1,20 @@
 import React from 'react'
 import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 
 const Card = ({ data }) => {
   const { _id, companyName, companyLogo, jobTitle, minPrice, maxPrice, salaryType, jobLocation, employmentType, postingDate, description } = data;
 
+  const characterLimit = 110;
+  const truncateText = (text) => {
+    if (text.length >characterLimit) {
+      return text.substring(0, characterLimit) + '...';
+    }
+    return text;
+  }
+
   return (
     <section className="card">
-      <Link
+      <div
         to={`/job/${_id}`}
         className="flex gap-4 flex-col sm:flex-row items-start"
       >
@@ -35,9 +42,9 @@ const Card = ({ data }) => {
             </span>
           </div>
 
-          <p className="text-base text-primary/70">{description}</p>
+          <p className="/text-base text-primary/70">{truncateText(description)}</p>
         </div>
-      </Link>
+      </div>
     </section>
   );
 }
