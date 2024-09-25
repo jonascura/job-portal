@@ -8,7 +8,7 @@ const Banner = ({ query, handleInputChange, updateJobs }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // Building the URL dynamically based on input
-    const baseUrl = "http://localhost:3000/search";
+    const baseUrl = "https://job-portal-back-4yxs.onrender.com/search";
     const queryParts = [];
     if (jobTitle) {
       queryParts.push(`jobTitle=${encodeURIComponent(jobTitle)}`);

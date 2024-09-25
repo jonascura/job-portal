@@ -21,7 +21,9 @@ const JobDetails = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/all-jobs/${id}`);
+        const response = await fetch(
+          `https://job-portal-back-4yxs.onrender.com/all-jobs/${id}`
+        );
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
@@ -36,7 +38,7 @@ const JobDetails = () => {
     const fetchRelatedJobs = async (tags) => {
       try {
         const response = await fetch(
-          `http://localhost:3000/related-jobs?tags=${tags.join(
+          `https://job-portal-back-4yxs.onrender.com/related-jobs?tags=${tags.join(
             ","
           )}&excludeId=${id}`
         );

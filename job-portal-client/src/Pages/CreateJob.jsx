@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { debounce } from "lodash";
 import CreatableSelect from "react-select/creatable";
-import { useAuth } from '../contexts/authContext';
-import AuthModal from '../component/AuthModal';
+import { useAuth } from "../contexts/authContext";
+import AuthModal from "../component/AuthModal";
 import "../styles/globals.css";
 
 const CreateJob = () => {
@@ -26,7 +26,7 @@ const CreateJob = () => {
   // save form elements for non-logged-in users (after log in, form is filled in with prior information. Cleared after one reload)
   useEffect(() => {
     // load form data from local storage if available
-    const savedFormData = JSON.parse(localStorage.getItem('formData'));
+    const savedFormData = JSON.parse(localStorage.getItem("formData"));
     if (savedFormData) {
       Object.keys(savedFormData).forEach((key) => {
         setValue(key, savedFormData[key]);
@@ -36,12 +36,14 @@ const CreateJob = () => {
       setJobTags(savedFormData.jobTags || []);
     }
     // clear local storage
-    localStorage.removeItem('formData');
+    localStorage.removeItem("formData");
   }, [setValue]);
 
   const debouncedFetchLocationSuggestions = debounce((inputText) => {
     if (!inputText.trim()) return setLocationSuggestions([]);
-    fetch(`http://localhost:3000/autocomplete-location?term=${inputText}`)
+    fetch(
+      `https://job-portal-back-4yxs.onrender.com/autocomplete-location?term=${inputText}`
+    )
       .then((response) => response.json())
       .then((data) => setLocationSuggestions(data))
       .catch((error) => console.error("Error fetching locations:", error));
@@ -65,15 +67,22 @@ const CreateJob = () => {
       isApproved: false,
     };
 
-
     if (!userLoggedIn) {
       setShowPopup(true);
       // save form data to local storage before redirecting login or signup
-      localStorage.setItem('formData', JSON.stringify({ ...data, skills: selectedOption, jobLocation: locationInput, jobTags}));
+      localStorage.setItem(
+        "formData",
+        JSON.stringify({
+          ...data,
+          skills: selectedOption,
+          jobLocation: locationInput,
+          jobTags,
+        })
+      );
       return;
     }
 
-    fetch("http://localhost:3000/post-job", {
+    fetch("https://job-portal-back-4yxs.onrender.com/post-job", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -99,7 +108,7 @@ const CreateJob = () => {
       data.isApproved = false;
       data.tags = jobTags.map((tag) => tag.value);
 
-      fetch("http://localhost:3000/post-job", {
+      fetch("https://job-portal-back-4yxs.onrender.com/post-job", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

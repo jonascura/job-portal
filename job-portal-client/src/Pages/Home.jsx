@@ -20,12 +20,15 @@ const Home = () => {
   // Fetching videos
   const fetchVideos = async () => {
     // Fetching videos from the MongoDB
-    const mongoResponse = await fetch("http://localhost:3000/all-videos");
+    const mongoResponse = await fetch(
+      "https://job-portal-back-4yxs.onrender.com/all-videos"
+    );
     const mongoVideos = mongoResponse.ok ? await mongoResponse.json() : [];
-    
 
     // Fetching videos from S3
-    const s3Response = await fetch("http://localhost:3000/s3-videos");
+    const s3Response = await fetch(
+      "https://job-portal-back-4yxs.onrender.com/s3-videos"
+    );
     const s3Videos = s3Response.ok ? await s3Response.json() : [];
     const formattedS3Videos = s3Videos.map((url, index) => ({
       id: `s3-${index}`, // Creating a unique ID for each S3 video
@@ -42,7 +45,6 @@ const Home = () => {
       console.error("Failed to fetch videos from one or both sources");
     }
   };
-
 
   useEffect(() => {
     fetchVideos();
@@ -64,10 +66,13 @@ const Home = () => {
 
     setIsLoading(true); // Show loading indicator during upload
     try {
-      const response = await fetch("http://localhost:3000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://job-portal-back-4yxs.onrender.com/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       if (!response.ok) throw new Error("Upload failed");
       const data = await response.json();
       setVideos([...videos, data]); // Update the video list with the new video
@@ -83,7 +88,7 @@ const Home = () => {
   // Fetching job listings
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/all-jobs?sort=postingDate`)
+    fetch(`https://job-portal-back-4yxs.onrender.com/all-jobs?sort=postingDate`)
       .then((res) => res.json())
       .then((data) => {
         const approvedJobs = Array.isArray(data)
@@ -96,19 +101,19 @@ const Home = () => {
         console.error("Failed to load jobs:", error);
         setJobs([]);
         setIsLoading(false);
-    });
-  },[]);
+      });
+  }, []);
 
   // get videos
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/all-videos`)
-    .then((res) => res.json())
-    .then((data) => {
-      setVideos(data);
-      setIsLoading(false);
-    });
-  },[]);
+    fetch(`https://job-portal-back-4yxs.onrender.com/all-videos`)
+      .then((res) => res.json())
+      .then((data) => {
+        setVideos(data);
+        setIsLoading(false);
+      });
+  }, []);
 
   // Input change handlers for each filter
   const handleProvinceChange = (province) => setSelectedProvince(province);
@@ -225,11 +230,7 @@ const Home = () => {
         </div>
 
         {/* Right */}
-        <div className="bg-white p-4 rounded">
-        </div>
-
-        
-
+        <div className="bg-white p-4 rounded"></div>
       </div>
     </div>
   );
