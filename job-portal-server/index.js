@@ -14,6 +14,8 @@ const fileRoutes = require("./routes/fileRoutes");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Define adminEmails with your list of admin emails
+const adminEmails = ["admin@admin.com"];
 // Configure CORS options
 const corsOptions = {
   origin: [

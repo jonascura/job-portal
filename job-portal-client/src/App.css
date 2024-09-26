@@ -5,7 +5,7 @@ body{
 }
 
 .active{
-  color: #3575E2;
+  color: #56E39F;
   font-weight: 500;
 }
 
@@ -33,9 +33,15 @@ li {
 
 .card {
   margin: 20px;
-  border: 1px solid #ededed;
+  border: 1.5px solid #ededed;
   padding: 20px;
   cursor: pointer;
+  border-radius: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -105,16 +111,20 @@ li {
   border-radius: 50%;
 }
 
+.checkmark:hover {
+  background-color: #56E39F;
+}
+
 .all {
   background: linear-gradient(blue, crimson);
 }
 
 .sidebar-label-container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: #59C9A5;
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #56E39F;
 }
 
 .checkmark:after {
@@ -141,8 +151,6 @@ li {
   border-color: #f7f7f7;
 }
 
-
-
 /* create a job page */
 
 .create-job-flex{
@@ -151,4 +159,13 @@ li {
 
 .create-job-input{
   @apply block w-full flex-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6
+}
+
+.job-preview {
+  position: sticky;
+  top: 2rem; /* Adjust based on your layout */
+  max-height: calc(100vh - 4rem); /* Adjust as needed */
+  overflow-y: auto; /* Enable scroll if content is too long */
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 1rem;
 }
