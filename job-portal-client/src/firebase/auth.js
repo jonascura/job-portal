@@ -42,15 +42,16 @@ export const logInWithEmailAndPassword = async (email, password) => {
 
     const role = idTokenResult.claims.role;
 
-    if (role === 'admin') {
-      console.log("Admin logged in successfully");
-      // Handle admin-specific logic
-    } else if (role === 'employer') {
-      console.log("Employer logged in successfully");
-      // Handle employer-specific logic
+    if (!idTokenResult.claims.admin) {
+      if (role === 'employer') {
+        console.log("Employer logged in successfully");
+        // Handle admin-specific logic
+      } else {
+        console.log("Regular user logged in successfully");
+        // Handle regular user logic
+      }
     } else {
-      console.log("Regular user logged in successfully");
-      // Handle regular user logic
+      console.log("Admin logged in successfully");
     }
 
     return { email: userCredential.user.email, role };

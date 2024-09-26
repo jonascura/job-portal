@@ -49,8 +49,30 @@ const Navbar = () => {
   };
 
   const handleSignOut = async () => {
-    await signOut(auth);
-    navigate('/login');
+    try {
+      // sign user out
+      await signOut(auth);
+
+      // clear local and session storage
+      localStorage.clear();
+      sessionStorage.clear();
+
+      // clear cookies (if cookies set)
+      document.cookie.split(";").forEach((c) => {
+        document.cookie = c
+          .replace(/^ +/, "")
+          .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      });
+
+      // clear console (remove sensitive logs)
+      console.clear();
+      
+      navigate('/login');
+
+    } catch (error) {
+      console.error('Error during sign-out:', error);
+    }
+    
   };
 
   const navItems = [];
