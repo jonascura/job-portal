@@ -39,12 +39,11 @@ const Login = () => {
             // Check the user's role (if needed) after login
             user.getIdTokenResult().then(idTokenResult => {
                 const role = idTokenResult.claims.role;
-                if (idTokenResult.claims.admin === 'admin') {
-                    console.log("Admin logged in");
-                } else if (role === 'employer') {
-                    console.log("Employer logged in");
+                if (!idTokenResult.claims.admin) {
+                  console.log("Regular user logged in successfully");
+                  // Handle regular user logic
                 } else {
-                    console.log("Regular user logged in");
+                console.log("Admin logged in successfully");
                 }
             });
             navigate('/');
